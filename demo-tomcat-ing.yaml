@@ -5,12 +5,8 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: HTTP
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-  creationTimestamp: "2022-01-14T13:02:59Z"
-  generation: 1
   name: ingress-tomcat-lab
   namespace: demo-tomcat
-  resourceVersion: "5769"
-  uid: 93a335d2-a746-4a92-92c0-cfb8018690bc
 spec:
   rules:
   - host: tomcat-lab.isotrol.net
@@ -26,5 +22,3 @@ spec:
   tls:
   - hosts:
     - tomcat-lab.isotrol.net
-status:
-  loadBalancer: {}

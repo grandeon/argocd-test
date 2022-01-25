@@ -16,7 +16,7 @@ spec:
         app: demo-tomcat
     spec:
       containers:
-      - image: tomcat:latest
+      - image: tomcat:8.0
         imagePullPolicy: IfNotPresent
         name: tomcat
         ports:

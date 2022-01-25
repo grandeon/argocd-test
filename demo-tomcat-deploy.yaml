@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.24.0.191"],"port":8080,"protocol":"TCP","serviceName":"demo-tomcat:demo-tomcat-svc","allNodes":false}]'
+  creationTimestamp: "2022-01-14T12:48:51Z"
+  generation: 2
+  labels:
+    app: demo-tomcat
+  name: demo-tomcat
+  namespace: demo-tomcat
+  resourceVersion: "2286876"
+  uid: 32bb2e33-7481-42ae-b3ae-9da48b1e2053
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: demo-tomcat
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: demo-tomcat
+    spec:
+      containers:
+      - image: tomcat:8.0
+        imagePullPolicy: IfNotPresent
+        name: tomcat
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2022-01-14T12:48:51Z"
+    lastUpdateTime: "2022-01-14T12:48:54Z"
+    message: ReplicaSet "demo-tomcat-6fd5586cbc" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2022-01-24T09:35:20Z"
+    lastUpdateTime: "2022-01-24T09:35:20Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

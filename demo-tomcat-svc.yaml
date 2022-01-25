@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.24.0.191"],"port":8080,"protocol":"TCP","serviceName":"demo-tomcat:demo-tomcat-svc","allNodes":false}]'
+  creationTimestamp: "2022-01-14T12:49:01Z"
+  labels:
+    app: demo-tomcat
+  name: demo-tomcat-svc
+  namespace: demo-tomcat
+  resourceVersion: "642963"
+  uid: 7ae18665-9844-4bdd-b9f3-470cc71af576
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.101.189.69
+  clusterIPs:
+  - 10.101.189.69
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31324
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: demo-tomcat
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.24.0.191

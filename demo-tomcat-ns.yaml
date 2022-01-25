@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    cattle.io/status: '{"Conditions":[{"Type":"ResourceQuotaInit","Status":"True","Message":"","LastUpdateTime":"2022-01-17T11:07:58Z"},{"Type":"InitialRolesPopulated","Status":"True","Message":"","LastUpdateTime":"2022-01-17T11:07:58Z"}]}'
+    lifecycle.cattle.io/create.namespace-auth: "true"
+  creationTimestamp: "2022-01-14T12:48:41Z"
+  finalizers:
+  - controller.cattle.io/namespace-auth
+  labels:
+    kubernetes.io/metadata.name: demo-tomcat
+  name: demo-tomcat
+  resourceVersion: "643914"
+  uid: 0a8b8f26-5b0b-44c7-b09a-6eacd981d6a8
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

@@ -6,7 +6,7 @@ metadata:
   name: demo-tomcat
   namespace: demo-tomcat
 spec:
-  replicas: 12
+  replicas: 3
   selector:
     matchLabels:
       app: demo-tomcat
